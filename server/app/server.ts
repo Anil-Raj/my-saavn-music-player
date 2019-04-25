@@ -30,10 +30,8 @@ export class HackerEarthServer {
         this.server.listen(this.port, () => {
             console.log('Running server on port %s', this.port);
         });
-        this.io.on("connection", function(socket: any) {
-            console.log("a user connected");
-            sockets.handler(socket);
-          });
+
+        sockets.handler(this.io);
         routes.handler(this.app);
     }
     public getApp(): express.Application {

@@ -36,7 +36,7 @@ export default class CodeArena {
             var eventEmitter = new events.EventEmitter();
 
             var emitter = require('./event')
-            //Fire the 'scream' event:
+            //Fire the 'join_fight' event:
             emitter.eventBus.sendEvent('join_fight',pool);
            
         }

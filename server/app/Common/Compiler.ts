@@ -26,6 +26,7 @@ export default class Compiler{
         let inPath: string;
         let outPath: string;
         fileName = makeId(5);
+        console.log(language);
         switch (language) {
             case "JS": inPath = './app/code/'; inExtension = '.js'; outPath = './app/code/'; outExtension = 'js'; break;
             default: inPath = '.\\app\\code\\'; inExtension = '.cs';  outPath = ''; outExtension = '.exe'; break;
