@@ -6,6 +6,7 @@ import AppRouter from './AppRouter';
 import { createStore } from 'redux';
 import rootReducers from './redux/reducers';
 import { Provider } from "react-redux";
+import Player from './components/Player/Player'
 
 class App extends Component {
 

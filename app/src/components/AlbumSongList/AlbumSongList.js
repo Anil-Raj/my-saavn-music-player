@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import Player from '../Player/Player';
 import SongItem from '../SongItem/SongItem';
-import { searchSong,fetchSongs,fetchAllSongs,fetchAllAlbums } from '../../redux/actions/index'
+import { searchSong,fetchSongs,fetchAllSongs } from '../../redux/actions/index'
 
 class AlbumSongList extends Component {
     constructor(props) {
@@ -91,7 +91,7 @@ const mapDispatchtoProps = (dispatch) => {
         search: (data) => dispatch(searchSong(data)),
         fetchSongs : (album) => fetchSongs(album,dispatch),
         fetchAllSongs:() => fetchAllSongs(dispatch),
-        fetchAllAlbums:()=>fetchAllAlbums(dispatch)
+        // fetchAllAlbums:()=>fetchAllAlbums(dispatch)
         // fetchArticleDetails:(al)=>dispatch(fetchArticleDetails(al))
     }
 }

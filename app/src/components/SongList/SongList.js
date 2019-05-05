@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SongItem from '../SongItem/SongItem';
-import { playSong, pauseSong, resumeSong} from '../../redux/actions/index';
+import { playSong, pauseSong, resumeSong,addSongsToQueue,playQueue} from '../../redux/actions/index';
 
 
 class SongList extends Component {
@@ -10,10 +10,10 @@ class SongList extends Component {
     }
     handleSongPlay=(song)=> this.props.playSong(song);
 
-    playAlbum = () => this.props.playSong(this.props.songs[0]);
+    playAlbum = () => this.props.playQueue(this.props.songs);
     render() {
         const defaultImage = "https://static.saavncdn.com/_i/3.0/album-default.png";
-        console.log(this.props);
+        console.log(this.props.songs);
         
         return (
             <section id="main">
@@ -53,8 +53,10 @@ class SongList extends Component {
     }
 }
 const mapStatetoProps = (state) => {
+    console.log(state);
+    
     return {
-        songs: state.songs,
+        // songs: state.songs,
         next_song: state.next_song,
         previous_song: state.previous_song,
         current_song: state.current_song,
@@ -65,12 +67,21 @@ const mapDispatchToProps=(dispatch,ownProps)=>{
  return {
         playSong: (song) => {
             dispatch(playSong(song))
+
         },
         pauseSong: () => {
             dispatch(pauseSong())
+
         },
         resumeSong: () => {
             dispatch(resumeSong())
+
+        },
+        addSongsToQueue:(songs) =>{
+            dispatch(addSongsToQueue(songs))
+        },
+        playQueue:(songs)=>{
+            dispatch(playQueue(songs))
         }
     }
 }
